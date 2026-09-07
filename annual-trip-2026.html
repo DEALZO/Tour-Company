@@ -1,3 +1,8 @@
+Bhai ab 100% copy-paste wala version le lo 🔥  
+Main ne aap ka diya hua tamam text wesy ka wesa add kar diya hai. Aur accordion system bhi "aik khulega to dusra band" wala bana diya.
+
+### *FINAL CODE: `annual-trip-2026.html`* 
+Isay direct copy kar ke upload kar do
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,17 +35,33 @@
     .day { margin-bottom: 15px; }
     .day b { color: #000; }
 
-    /* ACCORDION */
+    /* ACCORDION - ONE OPEN AT A TIME */
     .accordion { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; background: white; overflow: hidden; }
-    .accordion-header { padding: 15px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; color: #c62828; }
+    .accordion-header { padding: 15px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; color: #000; background: #fff; font-size: 16px; }
     .accordion-content { padding: 15px; display: none; border-top: 1px solid #eee; }
     .accordion.active .accordion-content { display: block; }
     .accordion-content ul { padding-left: 20px; }
     .accordion-content li { margin-bottom: 8px; }
+    .accordion-content p { margin-bottom: 8px; }
 
+    /* GALLERY */
+    .gallery { display: grid; grid-template-columns: 1fr; gap: 15px; margin: 20px 0; }
+    .gallery img { width: 100%; border-radius: 10px; }
+
+    /* BUTTONS */
+    .btn-red { width: 100%; padding: 14px; background: #c62828; color: white; border: none; border-radius: 50px; font-size: 16px; font-weight: bold; text-align: center; display: block; text-decoration: none; margin: 20px 0; }
     .btn-book { width: 100%; padding: 15px; background: #c62828; color: white; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; margin-top: 20px; cursor: pointer; }
-    
+
+    /* REGISTER FORM */
+    .register { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover; padding: 30px; border-radius: 12px; color: white; }
+    .register h2 { color: white; text-align: center; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: none; }
+    .form-group textarea { height: 80px; }
+
     .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+    .scroll-top { position: fixed; bottom: 20px; left: 20px; background: #c62828; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; text-decoration: none; }
 
     @media(max-width: 768px) { .attractions { grid-template-columns: 1fr 1fr; } .banner-text h1{font-size: 22px;} }
 </style>
@@ -60,7 +81,8 @@
     <!-- OVERVIEW -->
     <h2>Overview</h2>
     <div class="card">
-        <p>Embark on an unforgettable journey to the breathtaking landscapes of Naran, Skardu, Khaplu Valley, Basho Valley, and Kachura. This exciting tour combines scenic mountain views, peaceful lakes, historic landmarks, lush valleys, and adventurous experiences...</p>
+        <p>Embark on an unforgettable journey to the breathtaking landscapes of Naran, Skardu, Khaplu Valley, Basho Valley, and Kachura. This exciting tour combines scenic mountain views, peaceful lakes, historic landmarks, lush valleys, and adventurous experiences. From rafting at River Kunhar and exploring Naran to discovering the beauty of Khaplu, visiting Chaqchan Mosque and Crystal Lake Sogha, and exploring Kharpocho Fort and Organic Village, every day offers something new to experience.</p>
+        <p>The adventure continues with an exciting camping and bonfire experience in the stunning Basho Valley, followed by exploration of SOQ Valley, Upper Kachura Lake, and Shangrila Resort. Enjoy the natural beauty of the northern areas while traveling through some of Pakistan's most spectacular mountain landscapes.</p>
     </div>
 
     <!-- ATTRACTIONS -->
@@ -83,127 +105,279 @@
     <p>*People opting for by air route will leave a day later from Karachi and arrive a day earlier to Karachi</p>
     <div class="price-box">
         <h3>With Islamabad Stay:</h3>
-        <p>👥 Rs. 59,000/. Quad Sharing</p><p>👥 Rs. 63,500/. Triple Sharing</p><p>👥 Rs. 68,000/. Twin Sharing</p><p>👤 Rs. 104,000/. Solo Sharing</p>
+        <p>👥 Rs. 59,000/. (Per Person on Quad Sharing)</p>
+        <p>👥 Rs. 63,500/. (Per Person on Triple Sharing)</p>
+        <p>👥 Rs. 68,000/. (Per Person Twin Sharing)</p>
+        <p>👤 Rs. 104,000/. (Per Person Solo Sharing)</p>
+        <p>🧒 50% Between 4-7 years with Jumper Seat</p>
+        <p>👶 Free of Cost Below 4 years</p>
     </div>
     <div class="price-box">
         <h3>Without Islamabad Stay:</h3>
-        <p>👥 Rs. 55,000/. Quad Sharing</p><p>👥 Rs. 58,500/. Triple Sharing</p><p>👥 Rs. 62,000/. Twin Sharing</p><p>👤 Rs. 90,000/. Solo Sharing</p>
+        <p>👥 Rs. 55,000/. (Per Person on Quad Sharing)</p>
+        <p>👥 Rs. 58,500/. (Per Person on Triple Sharing)</p>
+        <p>👥 Rs. 62,000/. (Per Person on twin Sharing)</p>
+        <p>👤 Rs. 90,000/. (Per Person on Solo Sharing)</p>
+        <p>🧒 50% Between 4-7 years with Jumper Seat</p>
+        <p>👶 Free of Cost Below 4 years</p>
     </div>
 
-    <!-- ITINERARY -->
-    <h2>Itinerary</h2>
-    <div class="card">
-        <div class="day"><b>Day 01:</b> Depart from Karachi to Islamabad by bus/train.</div>
-        <div class="day"><b>Day 02:</b> Arrive Islamabad, hotel check-in.</div>
-        <div class="day"><b>Day 03:</b> Islamabad to Naran. Rafting at River Kunhar.</div>
-        <div class="day"><b>Day 04:</b> Naran to Skardu via Babusar Top.</div>
-        <div class="day"><b>Day 05:</b> Khaplu Valley, Chaqchan Mosque, Crystal Lake.</div>
-        <div class="day"><b>Day 06:</b> Hussainabad Waterfall, Kharpocho Fort, Organic Village.</div>
-        <div class="day"><b>Day 07:</b> Basho Valley 4x4, Camping & Bonfire.</div>
-        <div class="day"><b>Day 08:</b> SOQ Valley, Upper Kachura Lake, Shangrila Resort.</div>
-        <div class="day"><b>Day 09:</b> Skardu to Naran.</div>
-        <div class="day"><b>Day 10:</b> Naran to Islamabad. Khanpur Lake.</div>
-        <div class="day"><b>Day 11:</b> Depart Islamabad for Karachi.</div>
-        <div class="day"><b>Day 12:</b> Arrive Karachi.</div>
-    </div>
+    <!-- ACCORDIONS GROUP -->
+    <div id="accordion-group">
+        
+        <!-- ITINERARY -->
+        <div class="accordion">
+            <div class="accordion-header">Itinerary <span>+</span></div>
+            <div class="accordion-content">
+                <div class="day"><b>Day 01 – Friday:</b> Depart from Karachi and travel to Islamabad by bus/train. Flight passengers will depart the following day.</div>
+                <div class="day"><b>Day 02 – Saturday:</b> Arrive in Islamabad/Rawalpindi by evening and transfer to the hotel for check-in and rest. Enjoy dinner and overnight stay at the hotel.</div>
+                <div class="day"><b>Day 03 – Sunday:</b> Depart early morning for Naran with breakfast at Balakot and short stops at Kewai Waterfall and Kaghan. Enjoy Naran Bazaar and rafting at River Kunhar before dinner and overnight stay.</div>
+                <div class="day"><b>Day 04 – Monday:</b> Travel from Naran to Skardu via Babusar Top, Lulusar Lake, Batakundi and Three Mountain Junction. Arrive in Skardu by night for dinner and overnight stay.</div>
+                <div class="day"><b>Day 05 – Tuesday:</b> Explore the scenic Khaplu Valley, including Ghawari Farms, Chaqchan Mosque and Crystal Lake Sogha. Return to Skardu in the evening for dinner and overnight stay.</div>
+                <div class="day"><b>Day 06 – Wednesday:</b> Visit Hussainabad Waterfall before exploring the historic Kharpocho Fort. Trek from the fort towards Organic Village and return to Skardu in the evening.</div>
+                <div class="day"><b>Day 07 – Thursday:</b> Travel to the stunning Basho Valley by 4×4 Prado with a stop at the Chocolate Mountains. Enjoy the meadows and forest followed by bonfire, dinner and overnight camping.</div>
+                <div class="day"><b>Day 08 – Friday:</b> Explore SOQ Valley and Upper Kachura Lake with leisure time and optional boating. Visit Shangrila Resort at Lower Kachura Lake before returning to the hotel.</div>
+                <div class="day"><b>Day 09 – Saturday:</b> Depart Skardu for Naran via Babusar Top with scenic short stops along the way. Arrive in Naran by late evening for dinner and overnight stay.</div>
+                <div class="day"><b>Day 10 – Sunday:</b> Travel from Naran to Islamabad with a short stop at Balakot and a visit to Khanpur Lake. Enjoy optional water sports before reaching Islamabad in the evening.</div>
+                <div class="day"><b>Day 11 – Monday:</b> Check out from the hotel and travel to the bus terminal or railway station. Depart Islamabad/Rawalpindi for Karachi by bus, train or optional flight.</div>
+                <div class="day"><b>Day 12 – Tuesday:</b> Arrive back in Karachi after completing the tour. End of the journey with unforgettable memories of Naran, Skardu, Khaplu and Basho Valley.</div>
+            </div>
+        </div>
 
-    <!-- ALL ACCORDIONS -->
-    <div class="accordion">
-        <div class="accordion-header">Menu During Trip <span>+</span></div>
-        <div class="accordion-content">
-            <p><b>Menu 03:</b> Chicken Manchurian/ Shashlik, Fried Rice, Cold drinks</p>
-            <p><b>Menu 04:</b> Chicken Tikka/ Boti, Daal, Rice, Chapati, Raita</p>
-            <p><b>Note:</b> *Any one menu will be selected. *Tea/coffee not included.</p>
+        <!-- MENU -->
+        <div class="accordion">
+            <div class="accordion-header">Menu During Trip <span>+</span></div>
+            <div class="accordion-content">
+                <h3>Breakfast:</h3>
+                <ul><li>Tea</li><li>Paratha</li><li>Anda</li><li>Channa (If Available)</li><li>Water</li></ul>
+                <h3>Dinner (Menu 01):</h3>
+                <ul><li>Chicken Karahi/Handi</li><li>Daal/ Vegetable (supplementary)</li><li>Roti</li><li>Raita</li><li>Drinking Water</li><li>Cold drinks</li></ul>
+                <h3>(Menu 02):</h3>
+                <ul><li>Chicken Biryani/ Pulao</li><li>Daal/ Vegetable (supplementary)</li><li>Roti</li><li>Raita</li><li>Drinking Water</li><li>Cold drinks</li></ul>
+                <h3>(Menu 03):</h3>
+                <ul><li>Chicken Manchurian/ Shashlik</li><li>Fried Rice</li><li>Drinking Water</li><li>Cold drinks</li></ul>
+                <h3>(Menu 04):</h3>
+                <ul><li>Chicken Tikka/ Boti</li><li>Daal</li><li>Rice</li><li>Chapati</li><li>Raita</li><li>Drinking Water</li><li>Cold drinks</li></ul>
+                <p><b>Note:</b></p>
+                <ul>
+                    <li>*Any one of the above provided menus will be selected by the tour guide on daily basis.</li>
+                    <li>*Mutton, Beef, and Fish items are not included in our menu.</li>
+                    <li>*The hotel will charge for any additional items ordered by the client at breakfast or dinner.</li>
+                    <li>*Tea and coffee are not included with dinner. If ordered, clients will need to pay for them separately.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HOTELS -->
+        <div class="accordion">
+            <div class="accordion-header">Hotels <span>+</span></div>
+            <div class="accordion-content">
+                <p><b>Islamabad:</b> Index Hotel, or Hard Rock Hotel, or FT Residencia Guest House.</p>
+                <p><b>Naran:</b> Naran Retreat or Equivalent.</p>
+                <p><b>Skardu:</b> Al Noor Starlet Hotel or Al Noor Guest House or Equivalent.</p>
+            </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="accordion">
+            <div class="accordion-header">Services <span>+</span></div>
+            <div class="accordion-content">
+                <h3>Included:</h3>
+                <ul>
+                    <li>AC Transport (Grand Cabin/Coaster)</li>
+                    <li>Breakfast and Dinner</li>
+                    <li>Hotel Accommodation</li>
+                    <li>4×4 Jeep for Basho Valley</li>
+                    <li>Camping & Bonfire at Basho Valley</li>
+                    <li>Cycling at Skardu (Day 06 or 08)</li>
+                    <li>Music</li>
+                    <li>Fuel, Parking Fees, Toll Taxes, Challan and Driver Expenses</li>
+                    <li>Services of a Tour Manager/Guide</li>
+                    <li>Basic Phone Photography</li>
+                    <li>Basic First Aid</li>
+                </ul>
+                <h3>Not Included:</h3>
+                <ul>
+                    <li>Bus/Train/Air Tickets</li>
+                    <li>Travel Insurance</li>
+                    <li>Lunch, Refreshments, Tea/Coffee</li>
+                    <li>Water Sports/Desert Activities</li>
+                    <li>Entrance Fees for Any Fort, National Park, etc.</li>
+                    <li>AC and Heater in Rooms (However, AC will be provided in the Islamabad Hotel)</li>
+                    <li>Laundry</li>
+                    <li>Trekking Equipment</li>
+                    <li>Extra Jeep/Yango/InDrive Charges</li>
+                    <li>Any Extra Expenses Due to Landslides, Road Closures, or Other Unforeseen Circumstances Beyond Human Control</li>
+                    <li>Tips for the Driver/Guide (Optional and at the Participant’s Discretion)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ADDONS -->
+        <div class="accordion">
+            <div class="accordion-header">Addons <span>+</span></div>
+            <div class="accordion-content">
+                <h3>Train Tickets (From Karachi):</h3>
+                <ul>
+                    <li>Rs. 24,000 – 25,000/- (Return Ticket) (Lower AC Green Lines/ Tezgam)</li>
+                    <li>Rs. 31,000 – 32,000/- (Return Ticket) (AC Business Green Lines/ Tezgam)</li>
+                </ul>
+                <h3>Bus Tickets (From Karachi):</h3>
+                <ul>
+                    <li>Rs. 17,000 – 18,000/- (Faisal Movers/ Kainat/ Daewoo Bus Executive Class)</li>
+                    <li>Rs. 22,000 – 23,000/- (Faisal Movers/ Kainat/ Daewoo Bus Business Class)</li>
+                    <li>Rs. 26,000 – 27,000/- (Return Ticket) (Daewoo/ Faisal Movers Sleeper)</li>
+                </ul>
+                <h3>Air Tickets: (From Karachi):</h3>
+                <p>The cost of an air ticket will be depending upon the current airline fare</p>
+                <h3>Pickup/ Drop Cost (From Airport/Bus/Train Station:):</h3>
+                <ul>
+                    <li>Toyota Corolla: No of Persons: 02 – 03 Price: Rs. 5,000/-</li>
+                    <li>Honda BRV: No of Persons: 04 – 05 Price: Rs. 6,000/-</li>
+                    <li>Toyota Grand Cabin: No of Persons: 12 – 13 (Max) Price: Rs. 12,000/-</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- REFUND POLICY -->
+        <div class="accordion">
+            <div class="accordion-header">Refund Policy <span>+</span></div>
+            <div class="accordion-content">
+                <ul>
+                    <li>90% Refund if cancellation is made 15 days before the trip.</li>
+                    <li>50% Refund if cancellation is made between 07-14 days before the trip.</li>
+                    <li>25% Refund if cancellation is made 05 days before the trip.</li>
+                    <li>0% Refund if cancellation is made Less than 05 days before the trip.</li>
+                </ul>
+                <p><b>Note:</b></p>
+                <ul>
+                    <li>All advance payments are treated as 100% payment; refunds will be based on this.</li>
+                    <li>No refund will be issued for any unused services during the trip.</li>
+                    <li>Refunds will be processed within 4–5 working days.</li>
+                    <li>Refunds for bus, train, or flight tickets depend on the provider’s policy. Eventica will assist but isn’t liable for delays or deductions.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TERMS & CONDITIONS -->
+        <div class="accordion">
+            <div class="accordion-header">Terms & Conditions <span>+</span></div>
+            <div class="accordion-content">
+                <ul>
+                    <li>Every participant must carry their original CNIC/NICOP throughout the trip.</li>
+                    <li>Foreign nationals are not allowed to book group trips. Similar services are available through private tours.</li>
+                    <li>The Undertaking/Registration Form is mandatory for every member and must be completed at the time of booking with 100% accurate personal details. Bookings will not be confirmed without a completed form.</li>
+                    <li>All pictures/videos provided or captured by the guides during the trip are the intellectual property of Eventica Travels. We reserve the right to use and publish them on our social media platforms and marketing channels.</li>
+                    <li>Members are advised not to share personal pictures/videos in WhatsApp groups with other members or guides if they do not want them to be used on social media.</li>
+                    <li>If any member’s picture/video is uploaded and they are not comfortable with it being publicly shared, they may contact us at any time, and the content will be removed immediately.</li>
+                    <li>Providing the child’s Birth Certificate/B-Form is mandatory at the time of registration. If a child does not fall within the mentioned age bracket, Eventica Travels reserves the right to charge an additional amount.</li>
+                    <li>A photocopy of the Nikkah Nama or updated CNIC is mandatory for married couples requiring a separate room.</li>
+                    <li>The minimum number of members required to operate a trip is 8–10. If Eventica Travels cancels a trip due to low registration, members who have paid will be entitled to a 100% refund or may transfer the paid amount to the next trip.</li>
+                    <li>Eventica Travels constantly strives to improve tour itineraries and features. Due to improvements or unforeseen circumstances beyond our control, we reserve the right to modify itineraries and substitute hotels when necessary.</li>
+                    <li>In case any spot mentioned in the itinerary is closed or inaccessible, the tour guide will determine an alternate route or activity for the day.</li>
+                    <li>In case of late arrival, the tour bus will leave after a maximum waiting time of 15 minutes. Eventica Travels will not be responsible for any loss or additional expenses resulting from late arrival.</li>
+                    <li>Eventica Travels reserves the right to cancel the trip of any member who misbehaves with fellow members or staff at any time during the trip.</li>
+                    <li>Members shall be considered responsible for their own safety and personal belongings. Eventica Travels will not be liable for any loss, injury, accident, damage, delay, or expense arising during the tour.</li>
+                    <li>No refund or compensation will be provided during or after the trip in case of rain, storms, landslides, road closures, accidents, flat tires, engine failures, vehicle malfunctions, strikes, protests, political unrest, or any other unforeseen circumstances beyond our control.</li>
+                    <li>Any increase in fuel prices before the start of the trip may result in additional charges to the package price.</li>
+                    <li>Any complaints regarding services such as hotels, transport, meals, or other facilities must be reported immediately to the group leader or sales representative. Complaints made after completion of the trip will be considered, but will not result in compensation.</li>
+                    <li>Any additional expenses arising due to the above-mentioned or other unforeseen circumstances shall be borne by the member.</li>
+                    <li>Eventica Travels will not be held responsible for any unlawful items or irregularities carried by a passenger, including weapons or drugs.</li>
+                    <li>Any damage caused by a member to a hotel room, vehicle, or other facilities will be charged directly by the relevant management.</li>
+                    <li>Eventica Travels reserves the right to cancel a booking at any time if a member fails to comply with these Terms & Conditions.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TRAVELLER INSTRUCTIONS -->
+        <div class="accordion">
+            <div class="accordion-header">Traveller’s Instruction <span>+</span></div>
+            <div class="accordion-content">
+                <ul>
+                    <li>Departure details, including the hotel name, tour guide details, and other information, will be provided on the departure day, Friday, after Jummah prayer. Once received, kindly coordinate with the guide for further communication.</li>
+                    <li>Seats in the Coaster, Grand Cabin, and Jeep are not reserved in advance and follow a rotation policy from the first day of the trip. Seating will rotate between front, middle, and back. Eventica Travels does not differentiate between front and back seats, and cooperation is encouraged, especially for accommodating elderly members.</li>
+                    <li><b>For Males:</b> Bring 2–3 jeans/trousers, a few shirts and T-shirts, joggers, a jacket, raincoat/umbrella, and a trekking stick (optional).</li>
+                    <li><b>For Females:</b> Bring 3–4 suits, a jacket, joggers, raincoat/umbrella, shawl, and a trekking stick (optional).</li>
+                    <li>Bring your personal toiletries, including toothpaste, face wash, etc.</li>
+                    <li>Carry a personal water bottle throughout the trip.</li>
+                    <li>Please follow the tour guide’s instructions and guidelines throughout the trip.</li>
+                    <li>During stopovers, the vehicle will be turned off for passengers remaining inside.</li>
+                    <li>Travelers must carry essential medications such as road sickness medicine and other personal medications. If you have any specific medical condition or require regular medication, please inform us beforehand.</li>
+                    <li>Carry sufficient cash for personal expenses, as ATMs may not be available in all locations.</li>
+                    <li>Members must report at least one hour before the scheduled departure time and remain punctual throughout the trip. Failure to arrive on time may result in being left behind.</li>
+                    <li>The ideal luggage weight is 10kg. Travel light to make packing and unpacking easier. A backpack is also recommended for carrying essentials during excursions.</li>
+                    <li>Members must behave ethically and respectfully with fellow travelers. Religious and political arguments should be avoided during the trip.</li>
+                    <li>Mobile network coverage may be weak or unavailable in certain areas. Carry a power bank, as charging facilities may be limited during the journey.</li>
+                    <li>We recommend confirming your booking as early as possible to secure your slot before availability is filled.</li>
+                    <li>At high altitudes, guests may experience dizziness or discomfort due to reduced oxygen levels. Parents with infants, elderly travelers, and individuals with asthma are strongly advised to take appropriate precautions.</li>
+                    <li>Please read the terms and conditions carefully. Any violation of the terms and conditions may result in termination of the trip without further notice.</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <div class="accordion">
-        <div class="accordion-header">Hotels <span>+</span></div>
-        <div class="accordion-content">
-            <p><b>Islamabad:</b> Index Hotel, Hard Rock Hotel, or FT Residencia</p>
-            <p><b>Naran:</b> Naran Retreat or Equivalent</p>
-            <p><b>Skardu:</b> Al Noor Starlet Hotel or Al Noor Guest House</p>
-        </div>
+    <!-- GALLERY -->
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <img src="https://eventicatravels.com/wp-content/uploads/2026/08/Kharphocho-1.jpg" alt="Kharphocho">
+        <img src="https://eventicatravels.com/wp-content/uploads/2026/08/Khaplu-Sheep.jpg" alt="Khaplu">
+        <img src="https://eventicatravels.com/wp-content/uploads/2026/08/Kharphocho-2.jpg" alt="Kharphocho Fort">
+        <img src="https://eventicatravels.com/wp-content/uploads/2026/08/Kharphocho-3.jpg" alt="Kharphocho View">
     </div>
 
-    <div class="accordion">
-        <div class="accordion-header">Services <span>+</span></div>
-        <div class="accordion-content">
-            <h3>Included:</h3>
-            <ul>
-                <li>AC Transport (Grand Cabin/Coaster)</li><li>Breakfast and Dinner</li><li>Hotel Accommodation</li>
-                <li>4x4 Jeep for Basho Valley</li><li>Camping & Bonfire at Basho Valley</li><li>Cycling at Skardu</li>
-                <li>Music, Fuel, Toll, Driver Expenses</li><li>Tour Manager/Guide</li><li>Basic Photography & First Aid</li>
-            </ul>
-            <h3>Not Included:</h3>
-            <ul>
-                <li>Bus/Train/Air Tickets</li><li>Travel Insurance</li><li>Lunch, Tea/Coffee</li><li>Water Sports</li>
-                <li>Entrance Fees</li><li>AC/Heater in Rooms</li><li>Laundry, Trekking Equipment</li>
-                <li>Extra Jeep/Yango Charges</li><li>Any Extra Expenses due to Landslides</li><li>Tips for Driver/Guide</li>
-            </ul>
-        </div>
-    </div>
+    <!-- DOWNLOAD PDF -->
+    <a href="#" class="btn-red">⬇ DOWNLOAD PACKAGE PDF</a>
 
-    <div class="accordion">
-        <div class="accordion-header">Addons <span>+</span></div>
-        <div class="accordion-content">
-            <h3>Train Tickets From Karachi:</h3>
-            <ul><li>Rs. 24,000-25,000/. AC Lower Green Line/Tezgam</li><li>Rs. 31,000-32,000/. AC Business</li></ul>
-            <h3>Bus Tickets From Karachi:</h3>
-            <ul><li>Rs. 17,000-18,000/. Executive Class</li><li>Rs. 22,000-23,000/. Business Class</li><li>Rs. 26,000-27,000/. Sleeper</li></ul>
-            <h3>Pickup/Drop Cost:</h3>
-            <ul><li>Toyota Corolla 2-3 Persons: Rs. 5,000/</li><li>Honda BRV 4-5 Persons: Rs. 6,000/</li><li>Grand Cabin 12-13 Persons: Rs. 12,000/</li></ul>
-        </div>
-    </div>
-
-    <div class="accordion">
-        <div class="accordion-header">Refund Policy <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li>90% Refund if cancellation 15 days before</li><li>50% Refund 07-14 days before</li>
-                <li>25% Refund 05 days before</li><li>0% Refund Less than 05 days</li>
-            </ul>
-            <p><b>Note:</b> Refunds processed in 4-5 working days. No refund for unused services.</p>
-        </div>
-    </div>
-
-    <div class="accordion">
-        <div class="accordion-header">Terms & Conditions <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li>Original CNIC/NICOP mandatory</li><li>Foreign nationals not allowed in group trips</li>
-                <li>Registration Form mandatory</li><li>All photos/videos are property of Eventica Travels</li>
-                <li>Min 8-10 members required to operate trip</li><li>Itinerary can be modified due to unforeseen circumstances</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="accordion">
-        <div class="accordion-header">Traveller's Instruction <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li>Departure details will be provided on Friday after Jummah</li>
-                <li>Seats rotate daily in Coaster/Jeep</li>
-                <li><b>For Males:</b> 2-3 jeans, shirts, jacket, raincoat, joggers</li>
-                <li><b>For Females:</b> 3-4 suits, jacket, shawl, joggers</li>
-                <li>Carry personal toiletries & water bottle</li><li>Follow tour guide instructions</li>
-            </ul>
-        </div>
+    <!-- REGISTER FORM -->
+    <div class="register">
+        <h2>REGISTER NOW</h2>
+        <form>
+            <div class="form-group"><label>Name*</label><input type="text" placeholder="Enter Your Full Name" required></div>
+            <div class="form-group"><label>Contact No*</label><input type="text" placeholder="Enter Your WhatsApp" required></div>
+            <div class="form-group"><label>Email</label><input type="email" placeholder="Enter Your Email"></div>
+            <div class="form-group"><label>Tour To*</label><select required><option>Select Tour</option><option>Annual Trip 3.0</option></select></div>
+            <div class="form-group"><label>Number of Persons*</label><input type="number" placeholder="Enter Number of Persons" required></div>
+            <div class="form-group"><label>Any Specific Instructions*</label><textarea placeholder="Enter Your Instruction" required></textarea></div>
+            <button type="submit" class="btn-book">SUBMIT</button>
+        </form>
     </div>
 
     <button class="btn-book">Book Now</button>
 </div>
 
 <a href="https://wa.me/923363903371" class="whatsapp" target="_blank">TALK TO CHAT BOT</a>
+<a href="#" class="scroll-top">^</a>
 
 <script>
-    document.querySelectorAll('.accordion-header').forEach(header => {
-        header.addEventListener('click', () => {
-            header.parentElement.classList.toggle('active');
-            header.querySelector('span').textContent = header.parentElement.classList.contains('active') ? '-' : '+';
+    // ACCORDION: ONE OPEN AT A TIME
+    const accordions = document.querySelectorAll('.accordion');
+    accordions.forEach(acc => {
+        acc.querySelector('.accordion-header').addEventListener('click', () => {
+            // Close all others
+            accordions.forEach(a => {
+                if(a !== acc) {
+                    a.classList.remove('active');
+                    a.querySelector('span').textContent = '+';
+                }
+            });
+            // Toggle current
+            acc.classList.toggle('active');
+            acc.querySelector('span').textContent = acc.classList.contains('active') ? '-' : '+';
         });
     });
 </script>
 
 </body>
 </html>
+### *Ab 100% Complete Hai:*
+1.  *Itinerary*: 12 days poore aap wale
+2.  *Menu*: Breakfast + 4 Menu + Notes
+3.  *Services*: Included + Not Included full
+4.  *Addons*: Train, Bus, Air, Pickup sab rates
+5.  *T&C*: 21 points poore
+6.  *Instructions*: 17 points poore
+7.  *Accordion*: Sirf 1 khulega, dusra khole ga to pehla band
+
+Bas file bana ke upload kar do. Mobile pe check karna sab theek chalega.
+
+Koi spelling ya spacing change karwani ho to batao bhai ✅
