@@ -123,72 +123,84 @@
     }
     .btn-details:hover { background: #b71c1c; }
 
-    /* 4. ACCORDION + FORM SECTION - NEW ADDED */
-    .details-section {
-        padding: 40px 20px;
-        max-width: 800px;
+    /* 4. NEW: DETAILS SECTION WITH ACCORDION */
+    .details-wrapper {
+        padding: 50px 20px;
+        background: #fff;
+        max-width: 900px;
         margin: auto;
     }
+    .details-wrapper h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+        color: #000;
+    }
     .accordion-item {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        margin-bottom: 12px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        margin-bottom: 15px;
         background: #fff;
         overflow: hidden;
+        transition: 0.3s;
     }
     .accordion-header {
-        padding: 15px 20px;
+        padding: 18px 20px;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 17px;
         cursor: pointer;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #f1f1f1;
-        transition: 0.3s;
+        background: #f8f9fa;
+        color: #000;
     }
-    .accordion-header:hover { background: #e9e9e9; }
+    .accordion-header:hover { background: #eeeeee; }
     .accordion-header.active { background: #c62828; color: white; }
+    .accordion-header span { font-size: 22px; font-weight: bold; }
     .accordion-content {
         display: none;
         padding: 20px;
         background: white;
         border-top: 1px solid #eee;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Aage aane wala effect */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Aage aane wala effect */
+        line-height: 1.8;
     }
-    .accordion-content ul { padding-left: 20px; line-height: 1.8; }
+    .accordion-content ul { padding-left: 20px; }
+    .accordion-content li { margin-bottom: 8px; }
 
     /* 5. REGISTER FORM */
     .register {
         background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070') center/cover;
-        padding: 50px 20px;
+        padding: 60px 20px;
         position: relative;
     }
     .register::before {
         content: '';
         position: absolute;
         top:0; left:0; right:0; bottom:0;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0,0,0,0.65);
     }
     .form-box {
         position: relative;
-        max-width: 600px;
+        max-width: 650px;
         margin: auto;
-        background: rgba(255,255,255,0.95);
-        padding: 30px;
-        border-radius: 12px;
+        background: rgba(255,255,255,0.97);
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
-    .form-box h2 { text-align: center; margin-bottom: 25px; color: #000; }
-    .form-group { margin-bottom: 15px; }
-    .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+    .form-box h2 { text-align: center; margin-bottom: 25px; color: #000; font-size: 28px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 6px; color: #333; }
     .form-group input, .form-group select, .form-group textarea {
         width: 100%;
-        padding: 12px;
+        padding: 13px;
         border: 1px solid #ccc;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 15px;
     }
-    .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+    .btn-group { display: flex; gap: 12px; margin-top: 25px; flex-wrap: wrap; }
     .btn-whatsapp {
         background: #25D366;
         color: white;
@@ -198,6 +210,7 @@
         font-weight: bold;
         text-align: center;
         flex: 1;
+        min-width: 200px;
     }
 
     /* 6. FLOATING BUTTON */
@@ -233,7 +246,7 @@
     <a href="#register" class="btn-red">REGISTER NOW →</a>
 </section>
 
-<!-- 3. FIXED DEPARTURE TOURS -->
+<!-- 3. FIXED DEPARTURE TOURS + 10 SQUARE IMAGES -->
 <section class="tours" id="tours">
     <h2>Fixed Departure Tours</h2>
     <p class="sub">Depart every weekend.</p>
@@ -244,37 +257,109 @@
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach"></div>
-            <a href="#" class="btn-details">View Details</a>
+            <a href="#details" class="btn-details">View Details</a>
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Hunza-Skardu.jpg.jpeg" alt="Hunza Skardu"></div>
-            <a href="#" class="btn-details">View Details</a>
+            <a href="#details" class="btn-details">View Details</a>
         </div>
-        <!-- baqi cards same rahenge -->
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Hunza-Hopper.jpg.jpeg" alt="Hunza Hopper"></div>
+            <a href="#details" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir"></div>
+            <a href="#details" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Swat-Shogran.jpg.jpeg" alt="Swat Shogran"></div>
+            <a href="#details" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Skardu-Fairy-Medows.jpg" alt="Skardu Fairy Meadows"></div>
+            <a href="#details" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir 2"></div>
+            <a href="#details" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach 2"></div>
+            <a href="#details" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/04/Eventica-Luxury-Cruise-1536x1536.jpeg" alt="Luxury Cruise"></div>
+            <a href="#details" class="btn-details">View Details</a>
+        </div>
     </div>
 </section>
 
-<!-- 4. NEW: ACCORDION + DETAILS SECTION -->
-<section class="details-section" id="details">
+<!-- 4. NEW: COMPLETE DETAILS SECTION - ITINERARY TO INSTRUCTIONS -->
+<section class="details-wrapper" id="details">
+    <h2>Tour Details</h2>
+    
     <div class="accordion-item">
         <div class="accordion-header">Itinerary <span>+</span></div>
         <div class="accordion-content">
             <ul>
-                <li>Day 1: Karachi to Islamabad</li>
-                <li>Day 2-4: Hunza Valley Tour</li>
-                <li>Day 5-7: Skardu & Shangrila Lake</li>
+                <li><b>Day 1:</b> Karachi to Islamabad - Hotel Check-in</li>
+                <li><b>Day 2-4:</b> Islamabad to Hunza - Attabad Lake, Passu Cones</li>
+                <li><b>Day 5-7:</b> Skardu - Shangrila Lake, Upper Kachura</li>
+                <li><b>Day 8-10:</b> Naran, Kaghan - Babusar Pass</li>
+                <li><b>Day 11-12:</b> Return to Karachi</li>
             </ul>
         </div>
     </div>
+
     <div class="accordion-item">
         <div class="accordion-header">Menu During Trip <span>+</span></div>
         <div class="accordion-content">
             <ul>
-                <li>Breakfast: Paratha, Egg, Tea</li>
-                <li>Dinner: Chicken Karahi, Biryani, BBQ</li>
+                <li><b>Breakfast:</b> Paratha, Egg, Omelette, Tea</li>
+                <li><b>Lunch:</b> BBQ, Chicken Karahi, Rice</li>
+                <li><b>Dinner:</b> Biryani, Daal, Roti, Salad</li>
+                <li><b>Note:</b> Mineral water provided daily</li>
             </ul>
         </div>
     </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header">Hotels <span>+</span></div>
+        <div class="accordion-content">
+            <ul>
+                <li>Islamabad: 4 Star Hotel</li>
+                <li>Hunza: Luxus Hunza / Similar</li>
+                <li>Skardu: Shangrila Resort / Similar</li>
+                <li>Naran: Hotel Pine Park / Similar</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header">Services Included <span>+</span></div>
+        <div class="accordion-content">
+            <ul>
+                <li>Luxury Transport</li>
+                <li>Professional Tour Guide</li>
+                <li>Hotel Accommodation - Quad Sharing</li>
+                <li>All Meals as per Menu</li>
+                <li>Bonfire & Musical Night</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header">Addons <span>+</span></div>
+        <div class="accordion-content">
+            <ul>
+                <li>Quad to Twin Room Upgrade: +9000 PKR</li>
+                <li>Quad to Triple Room Upgrade: +4500 PKR</li>
+                <li>Solo Room: +45000 PKR</li>
+                <li>Paragliding, Zipline - On Spot Payment</li>
+            </ul>
+        </div>
+    </div>
+
     <div class="accordion-item">
         <div class="accordion-header">Refund Policy <span>+</span></div>
         <div class="accordion-content">
@@ -284,14 +369,33 @@
                 <li>25% Refund if cancellation is made 05 days before the trip.</li>
                 <li>0% Refund if cancellation is made Less than 05 days before the trip.</li>
             </ul>
+            <br><b>Note:</b>
+            <ul>
+                <li>All advance payments are treated as 100% payment</li>
+                <li>Refunds will be processed within 4-5 working days</li>
+            </ul>
         </div>
     </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header">Terms & Conditions <span>+</span></div>
+        <div class="accordion-content">
+            <ul>
+                <li>Eventica can cancel or postpone trip due to weather</li>
+                <li>Participants must follow code of conduct</li>
+                <li>Eventica is not responsible for personal belongings</li>
+            </ul>
+        </div>
+    </div>
+
     <div class="accordion-item">
         <div class="accordion-header">Traveler's Instructions <span>+</span></div>
         <div class="accordion-content">
             <ul>
                 <li>CNIC and original documents are mandatory</li>
+                <li>Wear comfortable shoes and warm clothes</li>
                 <li>Follow the guide instructions during trip</li>
+                <li>No littering. Keep environment clean</li>
             </ul>
         </div>
     </div>
@@ -319,6 +423,7 @@
                 <option>Select Tour</option>
                 <option>Annual Trip 2026</option>
                 <option>Hunza Skardu</option>
+                <option>Kashmir</option>
             </select>
         </div>
         <div class="form-group">
@@ -330,7 +435,7 @@
             <textarea id="instructions" rows="3" placeholder="Enter Your Instruction"></textarea>
         </div>
         <div class="btn-group">
-            <button onclick="sendToWhatsApp()" class="btn-red" style="flex:1">SUBMIT</button>
+            <button onclick="sendToWhatsApp()" class="btn-red">SUBMIT</button>
             <a href="https://wa.me/923367672293?text=Assalamualaikum%20Eventica%20Team,%20I%20need%20help%20regarding%20tour" target="_blank" class="btn-whatsapp">TALK TO CHAT BOT</a>
         </div>
     </div>
@@ -356,7 +461,7 @@
 </footer>
 
 <script>
-// ACCORDION JS - Sirf 1 khulega
+// ACCORDION JS - Sirf 1 khulega aur aage ayega
 const headers = document.querySelectorAll('.accordion-header');
 headers.forEach(header => {
   header.addEventListener('click', function() {
@@ -377,7 +482,7 @@ headers.forEach(header => {
   });
 });
 
-// WHATSAPP FORM SUBMIT
+// WHATSAPP FORM SUBMIT TO 03367672293
 function sendToWhatsApp() {
   let name = document.getElementById('name').value;
   let contact = document.getElementById('contact').value;
