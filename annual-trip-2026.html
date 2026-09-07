@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14 Days Annual Trip 3.0 - Eventica Travels</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #f8f9fa; color: #333; line-height: 1.7; }
+    .container { max-width: 900px; margin: auto; padding: 20px; }
+
+    .banner { position: relative; margin-bottom: 20px; }
+    .banner img { width: 100%; border-radius: 12px; }
+    .banner-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; }
+    .banner-text p.green { color: #00ff88; font-size: 16px; font-weight: 600; }
+    .banner-text h1 { font-size: 32px; text-shadow: 2px 2px 5px #000; }
+
+    h2 { font-size: 24px; margin: 30px 0 15px; color: #000; }
+    h3 { font-size: 18px; color: #c62828; margin: 15px 0 10px; }
+
+    .card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+
+    .attractions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .attractions div { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .attractions span { width: 8px; height: 8px; background: #c62828; border-radius: 50%; }
+
+    .price-box { border: 2px solid #c62828; border-radius: 10px; padding: 15px; margin-bottom: 15px; }
+
+    /* ACCORDION */
+    .accordion { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; background: white; overflow: hidden; }
+    .accordion-header { padding: 15px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; color: #000; }
+    .accordion-content { padding: 15px; display: none; border-top: 1px solid #eee; }
+    .accordion.active .accordion-content { display: block; }
+    .accordion-content ul { padding-left: 20px; }
+    .accordion-content li { margin-bottom: 8px; }
+
+    /* GALLERY */
+    .gallery { display: grid; grid-template-columns: 1fr; gap: 15px; margin: 20px 0; }
+    .gallery img { width: 100%; border-radius: 10px; }
+
+    /* BUTTONS */
+    .btn-red { width: 100%; padding: 14px; background: #c62828; color: white; border: none; border-radius: 50px; font-size: 16px; font-weight: bold; text-align: center; display: block; text-decoration: none; margin: 20px 0; }
+    .btn-book { width: 100%; padding: 15px; background: #c62828; color: white; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; margin-top: 20px; cursor: pointer; }
+
+    /* REGISTER FORM */
+    .register { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover; padding: 30px; border-radius: 12px; color: white; }
+    .register h2 { color: white; text-align: center; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: none; }
+    .form-group textarea { height: 80px; }
+
+    .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+    .scroll-top { position: fixed; bottom: 20px; left: 20px; background: #c62828; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; text-decoration: none; }
+
+    @media(max-width: 768px) { .attractions { grid-template-columns: 1fr 1fr; } .banner-text h1{font-size: 22px;} }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- BANNER -->
+    <div class="banner">
+        <img src="https://eventicatravels.com/wp-content/uploads/2026/08/Eventica-Annual-Trip-2026.jpeg" alt="Annual Trip">
+        <div class="banner-text">
+            <p class="green">14 Days Group Tour</p>
+            <h1>ANNUAL TRIP 3.0</h1>
+        </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <h2>Overview</h2>
+    <div class="card"><p>Embark on an unforgettable journey to the breathtaking landscapes of Naran, Skardu, Khaplu Valley, Basho Valley, and Kachura...</p></div>
+
+    <!-- ATTRACTIONS -->
+    <h2>Tour Attractions</h2>
+    <div class="card"><div class="attractions"><div><span></span> ISLAMABAD</div><div><span></span> NARAN</div><div><span></span> BABUSAR TOP</div><div><span></span> KHAPLU FORT</div><div><span></span> CHAQCHAN MOSQUE</div><div><span></span> CRYSTAL LAKE</div><div><span></span> HUSSAINABAD WATERFALL</div><div><span></span> KHARPOCHO FORT</div><div><span></span> ORGANIC VILLAGE</div><div><span></span> BASHO VALLEY</div><div><span></span> KACHURA LAKES</div></div></div>
+
+    <!-- TOUR DATE -->
+    <h2>Tour Date</h2>
+    <div class="card"><p>📅 <b>18 - 29 Sep</b></p></div>
+
+    <!-- PRICING -->
+    <h2>Pricing Per Person</h2>
+    <div class="price-box"><h3>With Islamabad Stay:</h3><p>👥 Rs. 59,000/. Quad</p><p>👥 Rs. 63,500/. Triple</p><p>👥 Rs. 68,000/. Twin</p><p>👤 Rs. 104,000/. Solo</p></div>
+    <div class="price-box"><h3>Without Islamabad Stay:</h3><p>👥 Rs. 55,000/. Quad</p><p>👥 Rs. 58,500/. Triple</p><p>👥 Rs. 62,000/. Twin</p><p>👤 Rs. 90,000/. Solo</p></div>
+
+    <!-- ITINERARY -->
+    <h2>Itinerary</h2>
+    <div class="card"><div class="day"><b>Day 01:</b> Depart Karachi to Islamabad</div><div class="day"><b>Day 02:</b> Arrive Islamabad</div><div class="day"><b>Day 03:</b> Islamabad to Naran</div><div class="day"><b>Day 04:</b> Naran to Skardu</div><div class="day"><b>Day 05:</b> Khaplu Valley</div><div class="day"><b>Day 06:</b> Kharpocho Fort</div><div class="day"><b>Day 07:</b> Basho Valley Camping</div><div class="day"><b>Day 08:</b> Kachura Lakes</div><div class="day"><b>Day 09:</b> Skardu to Naran</div><div class="day"><b>Day 10:</b> Naran to Islamabad</div><div class="day"><b>Day 11:</b> Depart Islamabad</div><div class="day"><b>Day 12:</b> Arrive Karachi</div></div>
+
+    <!-- ALL ACCORDIONS -->
+    <div class="accordion"><div class="accordion-header">Itinerary <span>˅</span></div><div class="accordion-content">Same as above</div></div>
+    <div class="accordion"><div class="accordion-header">Menu During Trip <span>˅</span></div><div class="accordion-content"><p><b>Menu 03:</b> Chicken Manchurian, Fried Rice</p><p><b>Menu 04:</b> Chicken Tikka, Daal, Rice</p></div></div>
+    <div class="accordion"><div class="accordion-header">Hotels <span>˅</span></div><div class="accordion-content"><p><b>Islamabad:</b> Index Hotel</p><p><b>Naran:</b> Naran Retreat</p><p><b>Skardu:</b> Al Noor Starlet</p></div></div>
+    <div class="accordion"><div class="accordion-header">Services <span>˅</span></div><div class="accordion-content"><h3>Included:</h3><ul><li>AC Transport</li><li>Breakfast and Dinner</li><li>Hotel Accommodation</li><li>4x4 Jeep for Basho Valley</li></ul><h3>Not Included:</h3><ul><li>Bus/Train/Air Tickets</li><li>Lunch</li><li>Entrance Fees</li></ul></div></div>
+    <div class="accordion"><div class="accordion-header">Addons <span>˅</span></div><div class="accordion-content"><p><b>Train:</b> Rs. 24,000-32,000/</p><p><b>Bus:</b> Rs. 17,000-27,000/</p></div></div>
+    <div class="accordion"><div class="accordion-header">Refund Policy <span>˅</span></div><div class="accordion-content"><ul><li>90% Refund 15 days before</li><li>50% Refund 07-14 days</li><li>0% Refund Less than 05 days</li></ul></div></div>
+    <div class="accordion"><div class="accordion-header">Terms & Conditions <span>˅</span></div><div class="accordion-content"><ul><li>Original CNIC mandatory</li><li>Foreign nationals not allowed</li><li>Min 8-10 members required</li></ul></div></div>
+    <div class="accordion"><div class="accordion-header">Traveller's Instruction <span>˅</span></div><div class="accordion-content">
+        <ul>
+            <li>Carry a personal water bottle throughout the trip.</li>
+            <li>Please follow the tour guide's instructions.</li>
+            <li>Travelers must carry essential medications.</li>
+            <li>Carry sufficient cash as ATMs may not be available.</li>
+            <li>Members must report 1 hour before departure.</li>
+            <li>The ideal luggage weight is 10kg. Travel light.</li>
+            <li>Members must behave ethically. Avoid religious/political arguments.</li>
+            <li>Mobile network may be weak. Carry a power bank.</li>
+            <li>At high altitudes, take precautions for dizziness.</li>
+            <li>Please read the terms and conditions carefully.</li>
+        </ul>
+    </div></div>
+
+    <!-- GALLERY -->
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <img src="https://eventicatravels.com/wp-content/uploads/2026/08/Kharphocho-1.jpg" alt="Kharphocho">
+        <img src="https://eventicatravels.com/wp-content/uploads/2026/08/Khaplu-Sheep.jpg" alt="Khaplu">
+        <img src="https://eventicatravels.com/wp-content/uploads/2026/08/Kharphocho-2.jpg" alt="Kharphocho Fort">
+        <img src="https://eventicatravels.com/wp-content/uploads/2026/08/Kharphocho-3.jpg" alt="Kharphocho View">
+    </div>
+
+    <!-- DOWNLOAD PDF -->
+    <a href="#" class="btn-red">⬇ DOWNLOAD PACKAGE PDF</a>
+
+    <!-- REGISTER FORM -->
+    <div class="register">
+        <h2>REGISTER NOW</h2>
+        <form>
+            <div class="form-group"><label>Name*</label><input type="text" placeholder="Enter Your Full Name" required></div>
+            <div class="form-group"><label>Contact No*</label><input type="text" placeholder="Enter Your WhatsApp" required></div>
+            <div class="form-group"><label>Email</label><input type="email" placeholder="Enter Your Email"></div>
+            <div class="form-group"><label>Tour To*</label>
+                <select required><option>Select Tour</option><option>Annual Trip 3.0</option></select>
+            </div>
+            <div class="form-group"><label>Number of Persons*</label><input type="number" placeholder="Enter Number of Persons" required></div>
+            <div class="form-group"><label>Any Specific Instructions*</label><textarea placeholder="Enter Your Instruction" required></textarea></div>
+            <button type="submit" class="btn-book">SUBMIT</button>
+        </form>
+    </div>
+
+    <button class="btn-book">Book Now</button>
+</div>
+
+<a href="https://wa.me/923363903371" class="whatsapp" target="_blank">TALK TO CHAT BOT</a>
+<a href="#" class="scroll-top">^</a>
+
+<script>
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            header.parentElement.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>
