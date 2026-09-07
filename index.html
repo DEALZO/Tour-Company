@@ -1,201 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventica Travels | Explore Pakistan</title>
 <style>
-   .trip-form { max-width: 600px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 12px; }
-    
-    /* STEP INDICATOR */
-   .step-indicator { display: flex; justify-content: space-between; background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-   .step { width: 35px; height: 35px; border-radius: 50%; background: #e0e0e0; color: #666; display: flex; align-items: center; justify-content: center; font-weight: bold; transition: all 0.3s; }
-   .step.active { background: #c62828; color: white; }
-   .step.completed { background: #c62828; color: white; }
-   .step.completed::after { content: '✓'; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #fff; color: #333; }
 
-   .form-group { margin-bottom: 20px; }
-   .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
-   .form-group label span { color: red; }
-   .form-group select,.form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; }
-
-   .alert-box { background: #e8f5e9; color: #2e7d32; padding: 12px; border-radius: 8px; margin: 15px 0; display: flex; align-items: center; gap: 8px; }
-
-    /* GUESTS + ROOMS COUNTER */
-   .counter-box { border: 1px solid #ddd; border-radius: 10px; padding: 15px; margin-bottom: 15px; }
-   .counter-header { display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 12px; }
-   .counter-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-   .counter-btns { display: flex; align-items: center; gap: 12px; }
-   .counter-btn { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #ddd; background: #f5f5f5; font-size: 18px; cursor: pointer; }
-   .counter-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-   .counter-value { font-size: 16px; font-weight: 600; min-width: 20px; text-align: center; }
-
-   .btn-submit { width: 100%; padding: 15px; background: #c62828; color: white; border: none; border-radius: 50px; font-size: 18px; font-weight: bold; cursor: pointer; }
-</style>
-
-<div class="trip-form">
-    <!-- STEP INDICATOR -->
-    <div class="step-indicator">
-        <div class="step" id="step1">1</div>
-        <div class="step" id="step2">2</div>
-        <div class="step" id="step3">3</div>
-        <div class="step" id="step4">4</div>
-        <div class="step" id="step5">5</div>
-        <div class="step" id="step6">6</div>
-        <div class="step" id="step7">7</div>
-    </div>
-
-    <div class="form-group">
-        <label>TRIP START DATE</label>
-        <select id="tripDate">
-            <option value="">Select Date</option>
-            <option value="26/09/2026">26/09/2026</option>
-        </select>
-    </div>
-
-    <div class="alert-box">🌟 Great, multiple trips are available!</div>
-
-    <div class="form-group">
-        <label>STARTING CITY <span>*</span></label>
-        <select id="startCity">
-            <option value="">Select City</option>
-            <option value="Lahore">Lahore</option>
-            <option value="Karachi">Karachi</option>
-            <option value="Islamabad">Islamabad</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>DESTINATION <span>*</span></label>
-        <select id="destination">
-            <option value="">Select destination</option>
-            <option value="Skardu">Skardu</option>
-            <option value="Naran">Naran</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>NUMBER OF DAYS <span>*</span></label>
-        <select id="numDays">
-            <option value="">Select duration</option>
-            <option value="3">3 Days</option>
-            <option value="7">7 Days</option>
-            <option value="14">14 Days</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>HOTEL CATEGORY <span>*</span></label>
-        <select id="hotelCat">
-            <option value="">Select hotel category</option>
-            <option value="3 Star">3 Star</option>
-            <option value="4 Star">4 Star</option>
-            <option value="5 Star">5 Star</option>
-        </select>
-    </div>
-
-    <!-- GUESTS -->
-    <div class="counter-box">
-        <div class="counter-header">👥 GUESTS</div>
-        <div class="counter-row">
-            <label>Adults <span>*</span></label>
-            <div class="counter-btns">
-                <button type="button" class="counter-btn" onclick="updateCounter('adults', -1)">-</button>
-                <span class="counter-value" id="adults">0</span>
-                <button type="button" class="counter-btn" onclick="updateCounter('adults', 1)">+</button>
-            </div>
-        </div>
-        <div class="counter-row">
-            <label>Children</label>
-            <div class="counter-btns">
-                <button type="button" class="counter-btn" onclick="updateCounter('children', -1)">-</button>
-                <span class="counter-value" id="children">0</span>
-                <button type="button" class="counter-btn" onclick="updateCounter('children', 1)">+</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ROOMS -->
-    <div class="counter-box">
-        <div class="counter-header">🛏 ROOMS</div>
-        <div class="counter-row">
-            <label>Number of Rooms</label>
-            <div class="counter-btns">
-                <button type="button" class="counter-btn" onclick="updateCounter('rooms', -1)">-</button>
-                <span class="counter-value" id="rooms">0</span>
-                <button type="button" class="counter-btn" onclick="updateCounter('rooms', 1)">+</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label>TRANSPORT TYPE <span>*</span></label>
-        <select id="transport">
-            <option value="">Select transport</option>
-            <option value="Bus">Bus</option>
-            <option value="Car">Car</option>
-            <option value="Flight">Flight</option>
-        </select>
-    </div>
-
-    <p style="font-size: 13px; color: #666; margin: 15px 0;">*If you don't find a suitable package that fits your number of days or destination, kindly contact us at <b><u>+92 336 3903371</u></b></p>
-
-    <button class="btn-submit" onclick="submitForm()">Design My Trip →</button>
-</div>
-
-<script>
-    let formData = {
-        adults: 0,
-        children: 0,
-        rooms: 0
-    };
-
-    // COUNTER FUNCTION
-    function updateCounter(type, change) {
-        formData[type] += change;
-        if(formData[type] < 0) formData[type] = 0;
-        document.getElementById(type).textContent = formData[type];
-        updateSteps();
+    /* 1. BANNER */
+    .banner {
+        background: url('https://eventicatravels.com/wp-content/uploads/2026/08/Eventica-Annual-Trip-2026.jpeg') center/cover;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #000;
+        height: 180px;
+        width: 100%;
+    }
+    @media (min-width: 768px) {
+        .banner { height: 450px; background-size: cover; }
     }
 
-    // STEP PROGRESS FUNCTION
-    function updateSteps() {
-        // Step 1: Date
-        if(document.getElementById('tripDate').value) markStep(1, true); else markStep(1, false);
-        
-        // Step 2: Start City
-        if(document.getElementById('startCity').value) markStep(2, true); else markStep(2, false);
-        
-        // Step 3: Destination
-        if(document.getElementById('destination').value) markStep(3, true); else markStep(3, false);
-        
-        // Step 4: Number of Days
-        if(document.getElementById('numDays').value) markStep(4, true); else markStep(4, false);
-        
-        // Step 5: Hotel Category
-        if(document.getElementById('hotelCat').value) markStep(5, true); else markStep(5, false);
-        
-        // Step 6: Guests
-        if(formData.adults > 0) markStep(6, true); else markStep(6, false);
-        
-        // Step 7: Rooms + Transport
-        if(formData.rooms > 0 && document.getElementById('transport').value) markStep(7, true); else markStep(7, false);
+    /* 2. HERO TEXT + RED BUTTON */
+    .hero-text {
+        text-align: center;
+        padding: 40px 20px;
+        background: #fff;
     }
+    .hero-text h3 {
+        color: #c62828;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+    .hero-text h2 {
+        font-size: 28px;
+        font-weight: 800;
+        color: #000;
+        margin-bottom: 20px;
+    }
+    .hero-text p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #444;
+        max-width: 700px;
+        margin: 0 auto 25px;
+    }
+    .btn-red {
+        display: inline-block;
+        background: #c62828;
+        color: white;
+        padding: 14px 35px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+    .btn-red:hover { background: #b71c1c; }
 
-    function markStep(stepNum, isCompleted) {
-        const step = document.getElementById('step' + stepNum);
-        if(isCompleted) {
-            step.classList.add('completed');
-            step.classList.remove('active');
-        } else {
-            step.classList.remove('completed');
-            step.classList.add('active');
+    /* 3. FIXED DEPARTURE TOURS - SQUARE PICS */
+    .tours {
+        padding: 50px 20px;
+        background: #f8f9fa;
+        text-align: center;
+    }
+    .tours h2 {
+        font-size: 32px;
+        font-weight: 800;
+        color: #000;
+        margin-bottom: 8px;
+    }
+    .tours p.sub {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 30px;
+    }
+    .tour-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Mobile: 1 pic */
+        gap: 25px;
+        max-width: 1200px;
+        margin: auto;
+    }
+    @media (min-width: 768px) {
+        .tour-grid {
+            grid-template-columns: repeat(3, 1fr); /* Laptop: 3 pics */
         }
     }
-
-    // Add event listeners to all selects
-    document.querySelectorAll('select').forEach(select => {
-        select.addEventListener('change', updateSteps);
-    });
-
-    function submitForm() {
-        alert('Form Submitted! Adults: ' + formData.adults + ', Children: ' + formData.children + ', Rooms: ' + formData.rooms);
+    .tour-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        padding-bottom: 15px;
+        transition: 0.3s;
     }
+    .tour-card:hover { transform: translateY(-5px); }
+    
+    /* SQUARE IMAGE */
+    .tour-card .img-box {
+        width: 100%;
+        aspect-ratio: 1/1; /* Square banane ke liye */
+        overflow: hidden;
+    }
+    .tour-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Image crop ho kar square me fit hogi */
+    }
+    
+    /* VIEW DETAILS BUTTON */
+    .btn-details {
+        display: inline-block;
+        background: #c62828;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 12px;
+        transition: 0.3s;
+    }
+    .btn-details:hover { background: #b71c1c; }
 
-    // Initial call
-    updateSteps();
-</script>
+    /* 4. CONTACT */
+    .contact { background: #000; color: white; padding: 50px 20px; text-align: center; }
+    .contact h2 { margin-bottom: 20px; font-size: 24px; }
+    .contact-info { font-size: 1.1em; line-height: 2; }
+    footer { background: #111; color: #aaa; text-align: center; padding: 15px; }
+</style>
+</head>
+<body>
+
+<!-- 1. BANNER -->
+<section class="banner"></section>
+
+<!-- 2. HERO TEXT -->
+<section class="hero-text">
+    <h3>YOUR NEXT JOURNEY AWAITS</h3>
+    <h2>DESIGNING YOUR CUSTOMIZED PRIVATE TRIP</h2>
+    <p>
+        The process is simple. Use our trip designer form to tell us where you want to go, 
+        what type of experiences you enjoy, and how you prefer to travel. 
+        <br><br>
+        Start planning today and let our specialists create a personalized travel plan!
+    </p>
+    <a href="trip-designer.html" class="btn-red">TRIP DESIGNER →</a>
+</section>
+
+<!-- 3. FIXED DEPARTURE TOURS + 10 SQUARE IMAGES -->
+<section class="tours" id="tours">
+    <h2>Fixed Departure Tours</h2>
+    <p class="sub">Depart every weekend.</p>
+    
+    <div class="tour-grid">
+       <div class="tour-card">
+    <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Eventica-Annual-Trip-2026.jpeg" alt="Annual Trip"></div>
+    <a href="annual-trip-2026.html" class="btn-details">View Details</a>
+</div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Hunza-Skardu.jpg.jpeg" alt="Hunza Skardu"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Hunza-Hopper.jpg.jpeg" alt="Hunza Hopper"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Swat-Shogran.jpg.jpeg" alt="Swat Shogran"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Skardu-Fairy-Medows.jpg" alt="Skardu Fairy Meadows"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir 2"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach 2"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/04/Eventica-Luxury-Cruise-1536x1536.jpeg" alt="Luxury Cruise"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+    </div>
+</section>
+
+<!-- 4. CONTACT -->
+<section class="contact">
+    <h2>DISCOVER PAKISTAN AND BEYOND WITH EVENTICA TRAVELS</h2>
+    <div class="contact-info">
+        <p>📞 Phone: +92 3XX XXXXXXX</p>
+        <p>📧 Email: info@eventicatravels.com</p>
+        <p>📍 Address: Quetta, Balochistan, Pakistan</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Eventica Travels. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
