@@ -6,7 +6,7 @@
 <title>Eventica Travels | Explore Pakistan</title>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    body { background: #fff; color: #333; scroll-behavior: smooth; }
+    body { background: #fff; color: #333; }
 
     /* 1. BANNER */
     .banner {
@@ -58,8 +58,6 @@
         font-weight: bold;
         font-size: 16px;
         transition: 0.3s;
-        border: none;
-        cursor: pointer;
     }
     .btn-red:hover { background: #b71c1c; }
 
@@ -82,13 +80,15 @@
     }
     .tour-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Mobile: 1 pic */
         gap: 25px;
         max-width: 1200px;
         margin: auto;
     }
     @media (min-width: 768px) {
-        .tour-grid { grid-template-columns: repeat(3, 1fr); }
+        .tour-grid {
+            grid-template-columns: repeat(3, 1fr); /* Laptop: 3 pics */
+        }
     }
     .tour-card {
         background: white;
@@ -99,16 +99,20 @@
         transition: 0.3s;
     }
     .tour-card:hover { transform: translateY(-5px); }
+    
+    /* SQUARE IMAGE */
     .tour-card .img-box {
         width: 100%;
-        aspect-ratio: 1/1;
+        aspect-ratio: 1/1; /* Square banane ke liye */
         overflow: hidden;
     }
     .tour-card img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: cover; /* Image crop ho kar square me fit hogi */
     }
+    
+    /* VIEW DETAILS BUTTON */
     .btn-details {
         display: inline-block;
         background: #c62828;
@@ -123,105 +127,7 @@
     }
     .btn-details:hover { background: #b71c1c; }
 
-    /* 4. NEW: DETAILS SECTION WITH ACCORDION */
-    .details-wrapper {
-        padding: 50px 20px;
-        background: #fff;
-        max-width: 900px;
-        margin: auto;
-    }
-    .details-wrapper h2 {
-        text-align: center;
-        font-size: 30px;
-        margin-bottom: 30px;
-        color: #000;
-    }
-    .accordion-item {
-        border: 1px solid #e0e0e0;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        background: #fff;
-        overflow: hidden;
-        transition: 0.3s;
-    }
-    .accordion-header {
-        padding: 18px 20px;
-        font-weight: bold;
-        font-size: 17px;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #f8f9fa;
-        color: #000;
-    }
-    .accordion-header:hover { background: #eeeeee; }
-    .accordion-header.active { background: #c62828; color: white; }
-    .accordion-header span { font-size: 22px; font-weight: bold; }
-    .accordion-content {
-        display: none;
-        padding: 20px;
-        background: white;
-        border-top: 1px solid #eee;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Aage aane wala effect */
-        line-height: 1.8;
-    }
-    .accordion-content ul { padding-left: 20px; }
-    .accordion-content li { margin-bottom: 8px; }
-
-    /* 5. REGISTER FORM */
-    .register {
-        background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070') center/cover;
-        padding: 60px 20px;
-        position: relative;
-    }
-    .register::before {
-        content: '';
-        position: absolute;
-        top:0; left:0; right:0; bottom:0;
-        background: rgba(0,0,0,0.65);
-    }
-    .form-box {
-        position: relative;
-        max-width: 650px;
-        margin: auto;
-        background: rgba(255,255,255,0.97);
-        padding: 35px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    .form-box h2 { text-align: center; margin-bottom: 25px; color: #000; font-size: 28px; }
-    .form-group { margin-bottom: 18px; }
-    .form-group label { display: block; font-weight: bold; margin-bottom: 6px; color: #333; }
-    .form-group input, .form-group select, .form-group textarea {
-        width: 100%;
-        padding: 13px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 15px;
-    }
-    .btn-group { display: flex; gap: 12px; margin-top: 25px; flex-wrap: wrap; }
-    .btn-whatsapp {
-        background: #25D366;
-        color: white;
-        padding: 14px 25px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        text-align: center;
-        flex: 1;
-        min-width: 200px;
-    }
-
-    /* 6. FLOATING BUTTON */
-    .floating-chat {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 999;
-    }
-
-    /* 7. CONTACT */
+    /* 4. CONTACT */
     .contact { background: #000; color: white; padding: 50px 20px; text-align: center; }
     .contact h2 { margin-bottom: 20px; font-size: 24px; }
     .contact-info { font-size: 1.1em; line-height: 2; }
@@ -243,214 +149,63 @@
         <br><br>
         Start planning today and let our specialists create a personalized travel plan!
     </p>
-    <a href="#register" class="btn-red">REGISTER NOW →</a>
+    <a href="trip-designer.html" class="btn-red">TRIP DESIGNER →</a>
 </section>
 
 <!-- 3. FIXED DEPARTURE TOURS + 10 SQUARE IMAGES -->
 <section class="tours" id="tours">
     <h2>Fixed Departure Tours</h2>
     <p class="sub">Depart every weekend.</p>
+    
     <div class="tour-grid">
        <div class="tour-card">
-            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Eventica-Annual-Trip-2026.jpeg" alt="Annual Trip"></div>
-            <a href="#details" class="btn-details">View Details</a>
-        </div>
+    <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Eventica-Annual-Trip-2026.jpeg" alt="Annual Trip"></div>
+    <a href="annual-trip-2026.html" class="btn-details">View Details</a>
+</div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach"></div>
-            <a href="#details" class="btn-details">View Details</a>
+            <a href="#" class="btn-details">View Details</a>
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Hunza-Skardu.jpg.jpeg" alt="Hunza Skardu"></div>
-            <a href="#details" class="btn-details">View Details</a>
+            <a href="#" class="btn-details">View Details</a>
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Hunza-Hopper.jpg.jpeg" alt="Hunza Hopper"></div>
-            <a href="#details" class="btn-details">View Details</a>
+            <a href="#" class="btn-details">View Details</a>
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir"></div>
-            <a href="#details" class="btn-details">View Details</a>
+            <a href="#" class="btn-details">View Details</a>
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Swat-Shogran.jpg.jpeg" alt="Swat Shogran"></div>
-            <a href="#details" class="btn-details">View Details</a>
+            <a href="#" class="btn-details">View Details</a>
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Skardu-Fairy-Medows.jpg" alt="Skardu Fairy Meadows"></div>
-            <a href="#details" class="btn-details">View Details</a>
+            <a href="#" class="btn-details">View Details</a>
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir 2"></div>
-            <a href="#details" class="btn-details">View Details</a>
+            <a href="#" class="btn-details">View Details</a>
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach 2"></div>
-            <a href="#details" class="btn-details">View Details</a>
+            <a href="#" class="btn-details">View Details</a>
         </div>
         <div class="tour-card">
             <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/04/Eventica-Luxury-Cruise-1536x1536.jpeg" alt="Luxury Cruise"></div>
-            <a href="#details" class="btn-details">View Details</a>
+            <a href="#" class="btn-details">View Details</a>
         </div>
     </div>
 </section>
 
-<!-- 4. NEW: COMPLETE DETAILS SECTION - ITINERARY TO INSTRUCTIONS -->
-<section class="details-wrapper" id="details">
-    <h2>Tour Details</h2>
-    
-    <div class="accordion-item">
-        <div class="accordion-header">Itinerary <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li><b>Day 1:</b> Karachi to Islamabad - Hotel Check-in</li>
-                <li><b>Day 2-4:</b> Islamabad to Hunza - Attabad Lake, Passu Cones</li>
-                <li><b>Day 5-7:</b> Skardu - Shangrila Lake, Upper Kachura</li>
-                <li><b>Day 8-10:</b> Naran, Kaghan - Babusar Pass</li>
-                <li><b>Day 11-12:</b> Return to Karachi</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header">Menu During Trip <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li><b>Breakfast:</b> Paratha, Egg, Omelette, Tea</li>
-                <li><b>Lunch:</b> BBQ, Chicken Karahi, Rice</li>
-                <li><b>Dinner:</b> Biryani, Daal, Roti, Salad</li>
-                <li><b>Note:</b> Mineral water provided daily</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header">Hotels <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li>Islamabad: 4 Star Hotel</li>
-                <li>Hunza: Luxus Hunza / Similar</li>
-                <li>Skardu: Shangrila Resort / Similar</li>
-                <li>Naran: Hotel Pine Park / Similar</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header">Services Included <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li>Luxury Transport</li>
-                <li>Professional Tour Guide</li>
-                <li>Hotel Accommodation - Quad Sharing</li>
-                <li>All Meals as per Menu</li>
-                <li>Bonfire & Musical Night</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header">Addons <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li>Quad to Twin Room Upgrade: +9000 PKR</li>
-                <li>Quad to Triple Room Upgrade: +4500 PKR</li>
-                <li>Solo Room: +45000 PKR</li>
-                <li>Paragliding, Zipline - On Spot Payment</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header">Refund Policy <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li>90% Refund if cancellation is made 15 days before the trip.</li>
-                <li>50% Refund if cancellation is made between 07-14 days before the trip.</li>
-                <li>25% Refund if cancellation is made 05 days before the trip.</li>
-                <li>0% Refund if cancellation is made Less than 05 days before the trip.</li>
-            </ul>
-            <br><b>Note:</b>
-            <ul>
-                <li>All advance payments are treated as 100% payment</li>
-                <li>Refunds will be processed within 4-5 working days</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header">Terms & Conditions <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li>Eventica can cancel or postpone trip due to weather</li>
-                <li>Participants must follow code of conduct</li>
-                <li>Eventica is not responsible for personal belongings</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header">Traveler's Instructions <span>+</span></div>
-        <div class="accordion-content">
-            <ul>
-                <li>CNIC and original documents are mandatory</li>
-                <li>Wear comfortable shoes and warm clothes</li>
-                <li>Follow the guide instructions during trip</li>
-                <li>No littering. Keep environment clean</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- 5. REGISTER FORM -->
-<section class="register" id="register">
-    <div class="form-box">
-        <h2>REGISTER NOW</h2>
-        <div class="form-group">
-            <label>Name*</label>
-            <input type="text" id="name" placeholder="Enter Your Full Name" required>
-        </div>
-        <div class="form-group">
-            <label>Contact No*</label>
-            <input type="text" id="contact" placeholder="Enter Your WhatsApp" required>
-        </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="email" placeholder="Enter Your Email">
-        </div>
-        <div class="form-group">
-            <label>Tour To*</label>
-            <select id="tour">
-                <option>Select Tour</option>
-                <option>Annual Trip 2026</option>
-                <option>Hunza Skardu</option>
-                <option>Kashmir</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Number of Persons*</label>
-            <input type="number" id="persons" placeholder="Enter Number of Persons" required>
-        </div>
-        <div class="form-group">
-            <label>Any Specific Instructions*</label>
-            <textarea id="instructions" rows="3" placeholder="Enter Your Instruction"></textarea>
-        </div>
-        <div class="btn-group">
-            <button onclick="sendToWhatsApp()" class="btn-red">SUBMIT</button>
-            <a href="https://wa.me/923367672293?text=Assalamualaikum%20Eventica%20Team,%20I%20need%20help%20regarding%20tour" target="_blank" class="btn-whatsapp">TALK TO CHAT BOT</a>
-        </div>
-    </div>
-</section>
-
-<!-- 6. FLOATING CHAT BUTTON -->
-<a href="https://wa.me/923367672293?text=Assalamualaikum%20Eventica%20Team" target="_blank" class="floating-chat">
-    <button class="btn-whatsapp">TALK TO CHAT BOT</button>
-</a>
-
-<!-- 7. CONTACT -->
+<!-- 4. CONTACT -->
 <section class="contact">
     <h2>DISCOVER PAKISTAN AND BEYOND WITH EVENTICA TRAVELS</h2>
     <div class="contact-info">
-        <p>📞 Phone: +92 336 7672293</p>
+        <p>📞 Phone: +92 3XX XXXXXXX</p>
         <p>📧 Email: info@eventicatravels.com</p>
         <p>📍 Address: Quetta, Balochistan, Pakistan</p>
     </div>
@@ -460,47 +215,5 @@
     <p>© 2026 Eventica Travels. All Rights Reserved.</p>
 </footer>
 
-<script>
-// ACCORDION JS - Sirf 1 khulega aur aage ayega
-const headers = document.querySelectorAll('.accordion-header');
-headers.forEach(header => {
-  header.addEventListener('click', function() {
-    // sab band karo
-    document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
-    document.querySelectorAll('.accordion-header').forEach(h => {
-        h.classList.remove('active');
-        h.querySelector('span').innerText = '+';
-    });
-    
-    // jis pe click kiya usko kholo
-    let content = this.nextElementSibling;
-    if(content.style.display !== 'block') {
-        content.style.display = 'block';
-        this.classList.add('active');
-        this.querySelector('span').innerText = '-';
-    }
-  });
-});
-
-// WHATSAPP FORM SUBMIT TO 03367672293
-function sendToWhatsApp() {
-  let name = document.getElementById('name').value;
-  let contact = document.getElementById('contact').value;
-  let email = document.getElementById('email').value;
-  let tour = document.getElementById('tour').value;
-  let persons = document.getElementById('persons').value;
-  let instructions = document.getElementById('instructions').value;
-
-  if(!name || !contact || !persons) {
-    alert('Please fill required fields *');
-    return;
-  }
-
-  let message = `*New Tour Registration*%0A%0A*Name:* ${name}%0A*Contact:* ${contact}%0A*Email:* ${email}%0A*Tour:* ${tour}%0A*Persons:* ${persons}%0A*Instructions:* ${instructions}`;
-  let whatsappUrl = `https://wa.me/923367672293?text=${message}`;
-  window.open(whatsappUrl, '_blank');
-}
-</script>
-
 </body>
-</html>
+</html> here is full code just re generate and mistakes i told just make them corect
