@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Pakistan | Your Travel Partner</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #f8f9fa; color: #333; }
 
+    /* BANNER */
+    .banner {
+        background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070') center/cover;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        position: relative;
+    }
+    .banner::after { content: ''; position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.4); }
+    .banner h1 { font-size: 3em; z-index: 1; text-shadow: 2px 2px 10px black; }
+
+    /* CATEGORIES */
+    .categories { padding: 50px 20px; text-align: center; }
+    .categories h2 { font-size: 2em; margin-bottom: 10px; color: #0066cc; }
+    .categories p { color: #666; margin-bottom: 30px; }
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; max-width: 900px; margin: auto; }
+    .category-btn {
+        background: white; padding: 15px; border-radius: 10px; border: 2px solid #0066cc;
+        cursor: pointer; font-weight: bold; transition: 0.3s;
+    }
+    .category-btn:hover { background: #0066cc; color: white; transform: translateY(-3px); }
+
+    /* GALLERY */
+    .gallery { padding: 40px 20px; max-width: 1200px; margin: auto; }
+    .gallery h2 { text-align: center; margin-bottom: 30px; color: #0066cc; }
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .photo-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .photo-card img { width: 100%; height: 200px; object-fit: cover; }
+    .photo-card p { padding: 10px; text-align: center; font-weight: 500; }
+
+    /* CONTACT */
+    .contact { background: #0066cc; color: white; padding: 50px 20px; text-align: center; }
+    .contact h2 { margin-bottom: 20px; }
+    .contact-info { font-size: 1.1em; line-height: 2; }
+    .btn-book { 
+        display: inline-block; margin-top: 20px; padding: 12px 30px; 
+        background: white; color: #0066cc; border-radius: 25px; 
+        text-decoration: none; font-weight: bold; transition: 0.3s;
+    }
+    .btn-book:hover { background: #ffcc00; color: black; }
+
+    footer { background: #222; color: #aaa; text-align: center; padding: 15px; }
+</style>
+</head>
+<body>
+
+<!-- 1. BANNER -->
+<section class="banner">
+    <h1>Discover The Beauty of Pakistan</h1>
+</section>
+
+<!-- 2. CATEGORIES -->
+<section class="categories">
+    <h2>Click Where To Travel</h2>
+    <p>Apni agli adventure destination chunein</p>
+    <div class="category-grid">
+        <div class="category-btn">HUNZA</div>
+        <div class="category-btn">SKARDU</div>
+        <div class="category-btn">NARAN</div>
+        <div class="category-btn">KASHMIR</div>
+        <div class="category-btn">GILGIT</div>
+        <div class="category-btn">SWAT</div>
+        <div class="category-btn">CHITRAL</div>
+        <div class="category-btn">FAIRY MEADOWS</div>
+        <div class="category-btn">KALAM</div>
+    </div>
+</section>
+
+<!-- 3. OUR TRAVEL PICS -->
+<section class="gallery">
+    <h2>Our Travel Memories</h2>
+    <div class="photo-grid">
+        <div class="photo-card">
+            <img src="https://via.placeholder.com/400x250" alt="Travel Pic 1">
+            <p>Hunza Valley Trip</p>
+        </div>
+        <div class="photo-card">
+            <img src="https://via.placeholder.com/400x250" alt="Travel Pic 2">
+            <p>Skardu Lake</p>
+        </div>
+        <div class="photo-card">
+            <img src="https://via.placeholder.com/400x250" alt="Travel Pic 3">
+            <p>Naran Kaghan</p>
+        </div>
+        <div class="photo-card">
+            <img src="https://via.placeholder.com/400x250" alt="Travel Pic 4">
+            <p>Kashmir Tour</p>
+        </div>
+        <div class="photo-card">
+            <img src="https://via.placeholder.com/400x250" alt="Travel Pic 5">
+            <p>Gilgit Adventure</p>
+        </div>
+        <div class="photo-card">
+            <img src="https://via.placeholder.com/400x250" alt="Travel Pic 6">
+            <p>Fairy Meadows</p>
+        </div>
+    </div>
+</section>
+
+<!-- 4. CONTACT + BOOKING -->
+<section class="contact">
+    <h2>Book Your Next Trip With Us</h2>
+    <div class="contact-info">
+        <p>📞 Phone: +92 3XX XXXXXXX</p>
+        <p>📧 Email: info@yourtravel.com</p>
+        <p>📍 Address: Quetta, Balochistan, Pakistan</p>
+    </div>
+    <a href="https://wa.me/923xxxxxxxxxx" class="btn-book">WhatsApp Pe Booking Karein</a>
+</section>
+
+<footer>
+    <p>© 2026 Explore Pakistan. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
