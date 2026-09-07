@@ -8,20 +8,20 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
     body { background: #fff; color: #333; }
 
-    /* 1. BANNER - MOBILE ZOOM OUT */
+    /* 1. BANNER */
     .banner {
         background: url('https://eventicatravels.com/wp-content/uploads/2026/08/Eventica-Annual-Trip-2026.jpeg') center/cover;
-        background-size: contain; /* Mobile me poora dikhne ke liye */
+        background-size: contain;
         background-repeat: no-repeat;
         background-color: #000;
         height: 280px;
         width: 100%;
     }
     @media (min-width: 768px) {
-        .banner { height: 450px; background-size: cover; } /* Desktop pe full cover */
+        .banner { height: 450px; background-size: cover; }
     }
 
-    /* 2. TEXT + RED BUTTON SECTION */
+    /* 2. HERO TEXT + RED BUTTON */
     .hero-text {
         text-align: center;
         padding: 40px 20px;
@@ -40,7 +40,6 @@
         font-weight: 800;
         color: #000;
         margin-bottom: 20px;
-        line-height: 1.3;
     }
     .hero-text p {
         font-size: 15px;
@@ -60,9 +59,9 @@
         font-size: 16px;
         transition: 0.3s;
     }
-    .btn-red:hover { background: #b71c1c; transform: translateY(-2px); }
+    .btn-red:hover { background: #b71c1c; }
 
-    /* 3. FIXED DEPARTURE TOURS SECTION */
+    /* 3. FIXED DEPARTURE TOURS - SQUARE PICS */
     .tours {
         padding: 50px 20px;
         background: #f8f9fa;
@@ -78,18 +77,17 @@
         font-size: 16px;
         color: #666;
         margin-bottom: 30px;
-        font-weight: 400;
     }
     .tour-grid {
         display: grid;
-        grid-template-columns: 1fr; /* Mobile: 1 pic in a row */
-        gap: 20px;
+        grid-template-columns: 1fr; /* Mobile: 1 pic */
+        gap: 25px;
         max-width: 1200px;
         margin: auto;
     }
     @media (min-width: 768px) {
         .tour-grid {
-            grid-template-columns: repeat(3, 1fr); /* Laptop: 3 pics in a row */
+            grid-template-columns: repeat(3, 1fr); /* Laptop: 3 pics */
         }
     }
     .tour-card {
@@ -97,14 +95,37 @@
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        padding-bottom: 15px;
         transition: 0.3s;
     }
     .tour-card:hover { transform: translateY(-5px); }
+    
+    /* SQUARE IMAGE */
+    .tour-card .img-box {
+        width: 100%;
+        aspect-ratio: 1/1; /* Square banane ke liye */
+        overflow: hidden;
+    }
     .tour-card img {
         width: 100%;
-        height: 220px;
-        object-fit: cover;
+        height: 100%;
+        object-fit: cover; /* Image crop ho kar square me fit hogi */
     }
+    
+    /* VIEW DETAILS BUTTON */
+    .btn-details {
+        display: inline-block;
+        background: #c62828;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 12px;
+        transition: 0.3s;
+    }
+    .btn-details:hover { background: #b71c1c; }
 
     /* 4. CONTACT */
     .contact { background: #000; color: white; padding: 50px 20px; text-align: center; }
@@ -118,41 +139,69 @@
 <!-- 1. BANNER -->
 <section class="banner"></section>
 
-<!-- 2. TEXT + RED BUTTON -->
+<!-- 2. HERO TEXT -->
 <section class="hero-text">
     <h3>YOUR NEXT JOURNEY AWAITS</h3>
     <h2>DESIGNING YOUR CUSTOMIZED PRIVATE TRIP</h2>
     <p>
         The process is simple. Use our trip designer form to tell us where you want to go, 
-        what type of experiences you enjoy, and how you prefer to travel. Once we receive your request, 
-        our team will create a personalized travel itinerary tailored to your expectations.
+        what type of experiences you enjoy, and how you prefer to travel. 
         <br><br>
-        Start planning today and let our specialists create a personalized travel plan 
-        that turns your dream vacation into never-forgetting experience!
+        Start planning today and let our specialists create a personalized travel plan!
     </p>
     <a href="#tours" class="btn-red">TRIP DESIGNER →</a>
 </section>
 
-<!-- 3. FIXED DEPARTURE TOURS + 10 IMAGES -->
+<!-- 3. FIXED DEPARTURE TOURS + 10 SQUARE IMAGES -->
 <section class="tours" id="tours">
     <h2>Fixed Departure Tours</h2>
     <p class="sub">Depart every weekend.</p>
     
     <div class="tour-grid">
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Eventica-Annual-Trip-2026.jpeg" alt="Annual Trip 2026"></div>
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach"></div>
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Hunza-Skardu.jpg.jpeg" alt="Hunza Skardu"></div>
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Hunza-Hopper.jpg.jpeg" alt="Hunza Hopper"></div>
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir"></div>
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Swat-Shogran.jpg.jpeg" alt="Swat Shogran"></div>
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Skardu-Fairy-Medows.jpg" alt="Skardu Fairy Meadows"></div>
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir 2"></div>
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach 2"></div>
-        <div class="tour-card"><img src="https://eventicatravels.com/wp-content/uploads/2026/04/Eventica-Luxury-Cruise-1536x1536.jpeg" alt="Luxury Cruise"></div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Eventica-Annual-Trip-2026.jpeg" alt="Annual Trip"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Hunza-Skardu.jpg.jpeg" alt="Hunza Skardu"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Hunza-Hopper.jpg.jpeg" alt="Hunza Hopper"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Swat-Shogran.jpg.jpeg" alt="Swat Shogran"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Skardu-Fairy-Medows.jpg" alt="Skardu Fairy Meadows"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/09/Kashmir.jpg.jpeg" alt="Kashmir 2"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/08/Ormara-Beach.jpg" alt="Ormara Beach 2"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
+        <div class="tour-card">
+            <div class="img-box"><img src="https://eventicatravels.com/wp-content/uploads/2026/04/Eventica-Luxury-Cruise-1536x1536.jpeg" alt="Luxury Cruise"></div>
+            <a href="#" class="btn-details">View Details</a>
+        </div>
     </div>
 </section>
 
-<!-- 4. CONTACT + BOOKING -->
+<!-- 4. CONTACT -->
 <section class="contact">
     <h2>DISCOVER PAKISTAN AND BEYOND WITH EVENTICA TRAVELS</h2>
     <div class="contact-info">
