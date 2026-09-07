@@ -1,164 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design Your Private Trip - Eventica Travels</title>
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    body { 
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80') center/cover fixed;
-        color: white;
-        padding: 20px;
-    }
-    .container { max-width: 600px; margin: auto; }
+   .trip-form { max-width: 600px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 12px; }
     
-    h1 { font-size: 28px; text-align: center; margin-bottom: 15px; }
-    .subtext { text-align: center; color: #ddd; margin-bottom: 30px; line-height: 1.6; }
+    /* STEP INDICATOR */
+   .step-indicator { display: flex; justify-content: space-between; background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+   .step { width: 35px; height: 35px; border-radius: 50%; background: #e0e0e0; color: #666; display: flex; align-items: center; justify-content: center; font-weight: bold; transition: all 0.3s; }
+   .step.active { background: #c62828; color: white; }
+   .step.completed { background: #c62828; color: white; }
+   .step.completed::after { content: '✓'; }
 
-    /* STEPS */
-    .steps { display: flex; justify-content: space-between; background: white; padding: 15px; border-radius: 15px; margin-bottom: 20px; }
-    .step { width: 35px; height: 35px; border-radius: 50%; background: #e0e0e0; color: #555; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-    .step.active { background: #c62828; color: white; }
-    .step.done { background: #c62828; color: white; }
+   .form-group { margin-bottom: 20px; }
+   .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+   .form-group label span { color: red; }
+   .form-group select,.form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; }
 
-    /* FORM CARD */
-    .form-card { background: white; color: #333; padding: 25px; border-radius: 15px; }
-    .label { font-weight: 600; font-size: 14px; margin-bottom: 8px; display: block; }
-    .label span { color: red; }
-    .input-box { 
-        width: 100%; padding: 12px 15px; border: 1px solid #ddd; 
-        border-radius: 10px; margin-bottom: 20px; font-size: 15px;
-        background: #f9f9f9;
-    }
-    .success-msg { 
-        background: #e8f5e9; color: #2e7d32; padding: 12px; 
-        border-radius: 10px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
-    }
+   .alert-box { background: #e8f5e9; color: #2e7d32; padding: 12px; border-radius: 8px; margin: 15px 0; display: flex; align-items: center; gap: 8px; }
 
-    /* GUESTS / ROOMS BOX */
-    .counter-box { border: 1px solid #ddd; border-radius: 10px; padding: 15px; margin-bottom: 20px; }
-    .counter-title { font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-    .counter-row { display: flex; justify-content: space-between; align-items: center; margin: 10px 0; color: #666; }
-    .counter-btns { display: flex; align-items: center; gap: 15px; }
-    .counter-btn { width: 30px; height: 30px; border: none; background: #f1f1f1; border-radius: 50%; font-size: 18px; cursor: pointer; }
+    /* GUESTS + ROOMS COUNTER */
+   .counter-box { border: 1px solid #ddd; border-radius: 10px; padding: 15px; margin-bottom: 15px; }
+   .counter-header { display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 12px; }
+   .counter-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+   .counter-btns { display: flex; align-items: center; gap: 12px; }
+   .counter-btn { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #ddd; background: #f5f5f5; font-size: 18px; cursor: pointer; }
+   .counter-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+   .counter-value { font-size: 16px; font-weight: 600; min-width: 20px; text-align: center; }
 
-    .note { font-size: 13px; color: #666; margin: 20px 0; }
-    .note b { color: #000; text-decoration: underline; }
-
-    .btn-submit {
-        width: 100%; padding: 14px; background: #c62828; color: white;
-        border: none; border-radius: 10px; font-size: 16px; font-weight: bold;
-        cursor: pointer;
-    }
-    .btn-submit:disabled { background: #ccc; cursor: not-allowed; }
-
-    /* WHATSAPP FLOAT */
-    .whatsapp {
-        position: fixed; bottom: 20px; right: 20px;
-        width: 55px; height: 55px; background: #25D366; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-    }
-    .whatsapp img { width: 30px; }
+   .btn-submit { width: 100%; padding: 15px; background: #c62828; color: white; border: none; border-radius: 50px; font-size: 18px; font-weight: bold; cursor: pointer; }
 </style>
-</head>
-<body>
 
-<div class="container">
-    <h1>Design Your Private Trip with Eventica Travels</h1>
-    <p class="subtext">Tell us your travel preferences and our expert trip designer will create a customized itinerary just for you. Get the best rates on partner hotels and reliable transport for a seamless journey.</p>
-
-    <!-- STEPS -->
-    <div class="steps">
-        <div class="step done">✓</div>
-        <div class="step done">✓</div>
-        <div class="step active">3</div>
-        <div class="step">4</div>
-        <div class="step">5</div>
-        <div class="step">6</div>
-        <div class="step">7</div>
+<div class="trip-form">
+    <!-- STEP INDICATOR -->
+    <div class="step-indicator">
+        <div class="step" id="step1">1</div>
+        <div class="step" id="step2">2</div>
+        <div class="step" id="step3">3</div>
+        <div class="step" id="step4">4</div>
+        <div class="step" id="step5">5</div>
+        <div class="step" id="step6">6</div>
+        <div class="step" id="step7">7</div>
     </div>
 
-    <!-- FORM -->
-    <form class="form-card">
-        <label class="label">TRIP START DATE</label>
-        <input type="date" class="input-box" value="2026-09-26">
-
-        <div class="success-msg">✨ Great, multiple trips are available!</div>
-
-        <label class="label">STARTING CITY <span>*</span></label>
-        <select class="input-box">
-            <option>Lahore</option>
-            <option>Karachi</option>
-            <option>Islamabad</option>
-            <option>Quetta</option>
+    <div class="form-group">
+        <label>TRIP START DATE</label>
+        <select id="tripDate">
+            <option value="">Select Date</option>
+            <option value="26/09/2026">26/09/2026</option>
         </select>
+    </div>
 
-        <label class="label">DESTINATION <span>*</span></label>
-        <select class="input-box">
-            <option>Select destination</option>
-            <option>Hunza</option>
-            <option>Skardu</option>
-            <option>Naran</option>
-            <option>Kashmir</option>
+    <div class="alert-box">🌟 Great, multiple trips are available!</div>
+
+    <div class="form-group">
+        <label>STARTING CITY <span>*</span></label>
+        <select id="startCity">
+            <option value="">Select City</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Karachi">Karachi</option>
+            <option value="Islamabad">Islamabad</option>
         </select>
+    </div>
 
-        <label class="label">NUMBER OF DAYS <span>*</span></label>
-        <select class="input-box">
-            <option>Select duration</option>
-            <option>3 Days</option>
-            <option>5 Days</option>
-            <option>7 Days</option>
+    <div class="form-group">
+        <label>DESTINATION <span>*</span></label>
+        <select id="destination">
+            <option value="">Select destination</option>
+            <option value="Skardu">Skardu</option>
+            <option value="Naran">Naran</option>
         </select>
+    </div>
 
-        <label class="label">HOTEL CATEGORY <span>*</span></label>
-        <select class="input-box">
-            <option>Select hotel category</option>
-            <option>3 Star</option>
-            <option>4 Star</option>
-            <option>5 Star Luxury</option>
+    <div class="form-group">
+        <label>NUMBER OF DAYS <span>*</span></label>
+        <select id="numDays">
+            <option value="">Select duration</option>
+            <option value="3">3 Days</option>
+            <option value="7">7 Days</option>
+            <option value="14">14 Days</option>
         </select>
+    </div>
 
-        <!-- GUESTS -->
-        <div class="counter-box">
-            <div class="counter-title">👥 GUESTS</div>
-            <div class="counter-row">
-                <span>Adults <span style="color:red">*</span></span>
-                <div class="counter-btns"><button type="button" class="counter-btn">-</button> <span>0</span> <button type="button" class="counter-btn">+</button></div>
-            </div>
-            <div class="counter-row">
-                <span>Children</span>
-                <div class="counter-btns"><button type="button" class="counter-btn">-</button> <span>0</span> <button type="button" class="counter-btn">+</button></div>
+    <div class="form-group">
+        <label>HOTEL CATEGORY <span>*</span></label>
+        <select id="hotelCat">
+            <option value="">Select hotel category</option>
+            <option value="3 Star">3 Star</option>
+            <option value="4 Star">4 Star</option>
+            <option value="5 Star">5 Star</option>
+        </select>
+    </div>
+
+    <!-- GUESTS -->
+    <div class="counter-box">
+        <div class="counter-header">👥 GUESTS</div>
+        <div class="counter-row">
+            <label>Adults <span>*</span></label>
+            <div class="counter-btns">
+                <button type="button" class="counter-btn" onclick="updateCounter('adults', -1)">-</button>
+                <span class="counter-value" id="adults">0</span>
+                <button type="button" class="counter-btn" onclick="updateCounter('adults', 1)">+</button>
             </div>
         </div>
-
-        <!-- ROOMS -->
-        <div class="counter-box">
-            <div class="counter-title">🛏 ROOMS</div>
-            <div class="counter-row">
-                <span>Number of Rooms</span>
-                <div class="counter-btns"><button type="button" class="counter-btn">-</button> <span>0</span> <button type="button" class="counter-btn">+</button></div>
+        <div class="counter-row">
+            <label>Children</label>
+            <div class="counter-btns">
+                <button type="button" class="counter-btn" onclick="updateCounter('children', -1)">-</button>
+                <span class="counter-value" id="children">0</span>
+                <button type="button" class="counter-btn" onclick="updateCounter('children', 1)">+</button>
             </div>
         </div>
+    </div>
 
-        <label class="label">TRANSPORT TYPE <span>*</span></label>
-        <select class="input-box">
-            <option>Select transport</option>
-            <option>Private Car</option>
-            <option>Coaster</option>
-            <option>Flight</option>
+    <!-- ROOMS -->
+    <div class="counter-box">
+        <div class="counter-header">🛏 ROOMS</div>
+        <div class="counter-row">
+            <label>Number of Rooms</label>
+            <div class="counter-btns">
+                <button type="button" class="counter-btn" onclick="updateCounter('rooms', -1)">-</button>
+                <span class="counter-value" id="rooms">0</span>
+                <button type="button" class="counter-btn" onclick="updateCounter('rooms', 1)">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>TRANSPORT TYPE <span>*</span></label>
+        <select id="transport">
+            <option value="">Select transport</option>
+            <option value="Bus">Bus</option>
+            <option value="Car">Car</option>
+            <option value="Flight">Flight</option>
         </select>
+    </div>
 
-        <p class="note">*If you don't find a suitable package that fits your number of days or destination, kindly contact us at <b>+92 336 3903371</b></p>
+    <p style="font-size: 13px; color: #666; margin: 15px 0;">*If you don't find a suitable package that fits your number of days or destination, kindly contact us at <b><u>+92 336 3903371</u></b></p>
 
-        <button type="submit" class="btn-submit">Design My Trip →</button>
-    </form>
+    <button class="btn-submit" onclick="submitForm()">Design My Trip →</button>
 </div>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/923363903371" class="whatsapp" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
+<script>
+    let formData = {
+        adults: 0,
+        children: 0,
+        rooms: 0
+    };
 
-</body>
-</html>
+    // COUNTER FUNCTION
+    function updateCounter(type, change) {
+        formData[type] += change;
+        if(formData[type] < 0) formData[type] = 0;
+        document.getElementById(type).textContent = formData[type];
+        updateSteps();
+    }
+
+    // STEP PROGRESS FUNCTION
+    function updateSteps() {
+        // Step 1: Date
+        if(document.getElementById('tripDate').value) markStep(1, true); else markStep(1, false);
+        
+        // Step 2: Start City
+        if(document.getElementById('startCity').value) markStep(2, true); else markStep(2, false);
+        
+        // Step 3: Destination
+        if(document.getElementById('destination').value) markStep(3, true); else markStep(3, false);
+        
+        // Step 4: Number of Days
+        if(document.getElementById('numDays').value) markStep(4, true); else markStep(4, false);
+        
+        // Step 5: Hotel Category
+        if(document.getElementById('hotelCat').value) markStep(5, true); else markStep(5, false);
+        
+        // Step 6: Guests
+        if(formData.adults > 0) markStep(6, true); else markStep(6, false);
+        
+        // Step 7: Rooms + Transport
+        if(formData.rooms > 0 && document.getElementById('transport').value) markStep(7, true); else markStep(7, false);
+    }
+
+    function markStep(stepNum, isCompleted) {
+        const step = document.getElementById('step' + stepNum);
+        if(isCompleted) {
+            step.classList.add('completed');
+            step.classList.remove('active');
+        } else {
+            step.classList.remove('completed');
+            step.classList.add('active');
+        }
+    }
+
+    // Add event listeners to all selects
+    document.querySelectorAll('select').forEach(select => {
+        select.addEventListener('change', updateSteps);
+    });
+
+    function submitForm() {
+        alert('Form Submitted! Adults: ' + formData.adults + ', Children: ' + formData.children + ', Rooms: ' + formData.rooms);
+    }
+
+    // Initial call
+    updateSteps();
+</script>
